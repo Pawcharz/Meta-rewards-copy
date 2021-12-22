@@ -1,0 +1,39 @@
+@mixin tocenomicsTransitionShown {
+    transition: all 1s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+.whitepaper {
+
+    min-height: 50vh;
+    background-image: url('../../../images/backgrounds/background-roadmap.png');
+
+    .section-main {
+
+        max-width: calc( min(#{$section-main-maxWidth-pc}, 100% - 3em) );
+
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        .title {
+            font-size: 4.75em;
+            font-weight: 800;
+            color: $color-violet;
+
+            @include tocenomicsTransitionShown;
+        }
+        .divider-standard {
+            margin-bottom: 1rem;
+        }
+    }
+}
+.whitepaper.hidden {
+
+    .section-main {
+
+        .title {
+            transform: translateY(4rem);
+            opacity: 0;
+        }
+    }
+}

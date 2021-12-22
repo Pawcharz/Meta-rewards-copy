@@ -1,0 +1,44 @@
+.section {
+    width: 100%;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 2;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &-main {
+        height: fit-content;
+        width: fit-content;
+        padding: 0 1.5rem;
+        
+        max-width: calc( min(#{$section-main-maxWidth-pc}, 100% - 3em) );
+        padding: 0 1.5em;
+        margin: 6em auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (max-width: 1200px) {
+            max-width: $section-main-maxWidth-tablet;
+        }
+        
+    }
+}
+
+
+@import "../scss/sections/banner";
+@import "../scss/sections/info";
+
+@import "../scss/sections/tokenomics";
+@import "../scss/sections/features";
+
+@import "../scss/sections/roadmap";
+
+@import "../scss/sections/whitepaper";

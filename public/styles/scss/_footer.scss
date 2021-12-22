@@ -1,0 +1,72 @@
+.footer {
+
+    background-color: $color-violet-dark;
+
+    &-main {
+
+        margin: 2rem auto;
+        gap: 0.5rem;
+        .logo {
+            height: fit-content;
+            width: fit-content;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            img {
+                height: 7rem;
+                width: 7rem;
+            }
+            h1 {
+                font-weight: 600;
+            }
+            cursor: pointer;
+        }
+        
+        .socials {
+            height: fit-content;
+            width: fit-content;
+    
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+            a {
+                height: fit-content;
+                width: fit-content;
+                padding: 0.5rem;
+    
+                border-radius: 100%;
+                transition: all 0.2s ease-in-out;
+    
+                display: flex;
+                img {
+                    height: 2rem;
+                    width: 2rem;
+                    
+                    object-fit: scale-down;
+                }
+            }
+            a:hover {
+                background-color: $color-pink;
+    
+                animation-name: social-hover;
+                animation-timing-function: ease-in-out;
+                animation-duration: 1.25s;
+                animation-iteration-count: infinite;
+
+                img {
+                    filter: invert(100);
+                }
+            }        
+        }
+
+        .copyrights {
+            margin-top: 2rem;
+
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+}

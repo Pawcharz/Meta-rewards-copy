@@ -1,0 +1,178 @@
+@mixin featuresTransitionShown {
+    transition: all 1s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+.features {
+    min-height: 60vh;
+    
+    background-attachment: fixed;
+    background-image: url('../../../images/backgrounds/background-features.png');
+    background-color: white;
+    position: relative;
+
+    .section-main {
+        width: 100%;
+        max-width: calc( min(#{$section-main-maxWidth-pc}, 100% - 3em) );
+
+        z-index: 2;
+
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        .title {
+            font-size: 4.75em;
+            font-weight: 800;
+            color: $color-violet;
+            
+            @include featuresTransitionShown;
+        }
+        .divider-standard {
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6rem;
+
+            .feature-container {
+                width: 100%;
+                height: fit-content;
+                max-height: 26rem;
+
+                @include featuresTransitionShown;
+                
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .feature-image-wrap { 
+                    height: 26rem;
+                    width: 70%;
+
+                    position: relative;
+                    overflow: hidden;
+
+
+                    display: flex;
+                    align-items: center;
+                    
+                    .feature-image {
+                        height: 100%;
+                        width: 100%;
+
+                        position: absolute;
+                        object-fit: contain;
+                    }
+                }
+                .feature-card {
+                    height: fit-content;
+                    width: calc(100% - 8rem);
+                    padding: 4rem;
+
+                    border-radius: 1rem;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+
+                    &-icon {
+                        height: 3.5rem;
+                        width: 3.5rem;
+                    }
+                    &-name {
+                        font-weight: 800;
+                        margin: 0;
+                    }
+                    &-description {
+                        font-weight: 400;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
+                }
+            }
+            .feature-container.hidden {
+                transform: translateY(16rem);
+                opacity: 0;
+            }
+
+            #feature-bnb {
+
+                .feature-card {
+                    background-color: $color-violet;
+                }
+            }
+            #feature-liquidity {
+                flex-direction: row-reverse;
+                .feature-card {
+                    background-color: $color-violet-dark;
+                }                   
+            }
+            #feature-buyBack {
+
+                .feature-card {
+                    background-color: $color-pink; 
+                }                   
+            }
+            #feature-antiWhale {
+                flex-direction: row-reverse;
+                .feature-card {
+                    background-color: $color-yellow;
+                }
+            }
+
+            @media screen and (max-width: 1200px) {
+                .feature-container {
+                    max-height: 24rem;
+
+                    .feature-image-wrap {
+                        height: 24rem;
+                        width: 60%;
+                    }
+                    .feature-card {
+                        width: calc(100% - 4rem);
+                        padding: 2rem;
+    
+                        font-size: 0.9em;
+                        
+                    }
+                }
+            }
+    
+            @media screen and (max-width: 800px) {
+
+                .feature-container { 
+                    max-height: 100vh;
+                    
+                    flex-direction: column !important;
+                    .feature-image-wrap {
+                        height: 100vh;
+                        width: 100%;
+                    }
+                    .feature-card {
+                        width: calc(100% - 3rem);
+                        padding: 1.5rem;
+
+                        font-size: 0.9em;
+                    }
+                }
+
+            }
+        }
+    }
+}
+.features.hidden {
+
+    .section-main {
+        .title {
+            transform: translateY(4rem);
+            opacity: 0;
+        }
+    }
+}

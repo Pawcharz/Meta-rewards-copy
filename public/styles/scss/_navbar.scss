@@ -1,0 +1,314 @@
+@mixin navbarTransitionShown {
+    transition: all 1s ease-out;
+    opacity: 1;
+}
+.navbar {
+    height: calc(#{$navbar-height} - 1rem);
+    width: $section-main-maxWidth-pc;
+    padding: 0.5rem calc( (100% - #{$section-main-maxWidth-pc}) / 2);
+
+    position: fixed;
+    z-index: 999;
+
+    color: $color-font-black;
+    background-color: rgba(white, 0.8);
+    backdrop-filter: blur(0.25rem);
+
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+
+    .logo {
+        height: 100%;
+        width: fit-content;
+        
+        @include navbarTransitionShown;
+
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        img {
+            height: 3.5rem;
+            width: 3.5rem;
+        }
+        h1 {
+            margin-bottom: 0;
+            font-weight: 600;
+
+            font-size: 2.5em;
+        }
+        cursor: pointer;
+    }
+
+    .menu {
+        width: auto;
+        height: 100%;
+        margin: auto 0 auto auto;
+
+        @include navbarTransitionShown;
+
+        display: flex;
+        align-items: center;
+
+        &-greyarea {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            .menu-main {
+                height: fit-content;
+                width: 100%;
+                margin: auto 0 0 0;
+
+                display: flex;
+
+                .menu-topbar {
+                    display: none;
+                }
+                .menu-list {
+
+                    height: fit-content;
+                    width: 100%;
+                    margin: auto 0 0 0;
+    
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+
+                    li {
+                        display: flex;
+                        a {
+                            padding: 0.5rem 1rem;
+                            font-weight: 600;
+    
+                            transition: all 0.15s ease-in-out;
+                        }
+                        
+                        a:hover {
+    
+                            cursor: pointer;
+                            @include violet-shadow;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .socials {
+        height: fit-content;
+        width: fit-content;
+        margin: auto 0 0 0;
+
+        @include navbarTransitionShown;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        
+        a {
+            height: fit-content;
+            width: fit-content;
+            padding: 0.5rem;
+
+            border-radius: 100%;
+            transition: all 0.2s ease-in-out;
+
+            display: flex;
+            img {
+                height: 1.75rem;
+                width: 1.75rem;
+                
+                object-fit: scale-down;
+            }
+        }
+        a:hover {
+            background-color: $color-pink;
+
+            animation-name: social-hover;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1.25s;
+            animation-iteration-count: infinite;
+
+            img {
+                filter: invert(100);
+            }
+        }        
+    }
+
+    .button-menu-open {
+        display: none;
+    }
+    @media screen and (max-width: 1300px) {
+        width: calc(100% - 2 * #{$navbar-minPadding});
+        padding: 0.5rem $navbar-minPadding;
+    }
+    @media screen and (max-width: 1050px) {
+        .menu {
+            height: 100vh;
+            width: 100vw;
+            
+            position: absolute;
+            margin: 0;
+
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+
+            transition: all 0.25s ease-in-out;
+            transition-delay: 0.25s;
+            transform: translateX(-100%);
+
+            .menu-greyarea {
+                background-color: hsla(0, 0%, 30%, 0.5);
+
+                .menu-main {
+                    height: 100%;
+                    min-width: 50%;
+                    width: 24rem;
+
+                    z-index: 999;
+                    background-color: white;
+
+                    transition: all 0.25s ease-in-out;
+                    transform: translateX(-100%);
+
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                    .menu-topbar {
+                        height: calc(#{$navbar-height} - 1rem);
+                        width: calc(100% - 2rem);
+                        padding: 0.5rem 1rem;
+
+                        display: flex;
+                        align-items: center;
+
+
+                        .menu-topbar-logo {
+                            height: fit-content;
+                            width: fit-content;
+                            margin: auto auto 0 0;
+            
+                            display: flex;
+                            align-items: center;
+                            gap: 0.75rem;
+                            img {
+                                height: 3.5rem;
+                                width: 3.5rem;
+                            }
+                            h1 {
+                                margin-bottom: 0;
+                                font-weight: 600;
+                    
+                                //font-size: 2em;
+                            }
+                            cursor: pointer;
+                        }
+                        .button-menu-close {
+                            height: 2.25rem;
+                            width: 2.25rem;
+                            margin: auto 0 auto auto;
+                    
+                            background-color: $color-violet;
+                            border: 1px solid $color-violet;
+                            border-radius: 0.2rem;
+                    
+                            cursor: pointer;
+                    
+                            display: flex;
+                            align-items: center;
+                            img {
+                                height: 1.5rem;
+                                width: 1.5rem;
+                                margin: auto;
+                            }
+                        }
+                    }
+
+                    
+                    .menu-list {
+
+                        height: fit-content;
+                        width: fit-content;
+                        padding: 2rem 0 0 1rem;
+
+                        font-size: 1rem;
+
+                        margin: 0 auto auto 0;
+                        flex-direction: column;
+                        align-items: baseline;
+                        gap: 0.75rem;
+
+                    }
+                }
+            }
+        }
+        .menu.active {
+            transform: translateX(0);
+
+            .menu-greyarea {
+                
+                .menu-main {
+                    transform: translateX(0);
+                    transition-delay: 0.5s;
+                }
+            }
+        }
+        .socials {
+            margin: auto 0 0 auto;
+        }
+        .button-menu-open {
+            height: 2.25rem;
+            width: 2.25rem;
+            margin: auto 0;
+
+            @include navbarTransitionShown;
+    
+            background-color: $color-violet;
+            border: 1px solid $color-violet;
+            border-radius: 0.2rem;
+    
+            cursor: pointer;
+    
+            display: flex;
+            align-items: center;
+            img {
+                height: 1.5rem;
+                width: 1.5rem;
+                margin: auto;
+            }
+        }
+    }
+
+    @media screen and (max-width:550px) {
+        .socials {
+            display: none;
+        }
+    }
+
+}
+.navbar.hidden {
+
+    .logo {
+        opacity: 0;
+    }
+
+    .menu {
+        opacity: 0;
+    }
+
+    .socials {
+        opacity: 0;
+    }
+
+    .button-menu-open {
+        opacity: 0;
+    }
+}

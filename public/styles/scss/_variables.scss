@@ -1,0 +1,26 @@
+$font-main: "Roboto";
+
+$color-black-background: #0f0f0f;
+$color-violet: #6C26BF;
+$color-violet-dark: #342562;
+$color-pink: #E92E93;
+$color-yellow: #F0944C;
+
+$color-font-white: white;
+$color-font-black: black;
+
+$navbar-height: 4.5rem;
+$navbar-minPadding: 1rem;
+
+
+$section-main-maxWidth-pc: 1240px;
+$section-main-maxWidth-tablet: 800px;
+
+$section-banner-maxWidth-pc: $section-main-maxWidth-pc * 0.65;
+$section-maxWidth-pct: 90%;
+
+@keyframes social-hover {
+    0% {transform: scale(1) }
+    50% {transform: scale(1.15) }
+    100% {transform: scale(1) }
+}

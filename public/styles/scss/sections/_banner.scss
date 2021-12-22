@@ -1,0 +1,89 @@
+@mixin bannerTransitionShown {
+    transition: all 1s ease-out;
+    opacity: 1;
+}
+@keyframes button-floating {
+    0% {
+        transform: translateX(-0.4em) translateY(-0.2em);
+    }
+    50% {
+        transform: translateX(0.4em) translateY(0.2em);
+    }
+    100% {
+        transform: translateX(-0.4em) translateY(-0.2em);
+    }
+}
+.banner {
+    min-height: calc(100vh - #{$navbar-height});
+    padding-top: $navbar-height;
+
+
+    background-attachment: fixed;
+    background-image: url('../../../images/backgrounds/background-1.webp');
+
+    .section-main {
+        max-width: calc( min(#{$section-banner-maxWidth-pc}, 100% - 3em) );
+
+        margin: 8em auto auto auto;
+        
+        justify-content: space-between;
+        gap: 0.5rem;
+
+        .tilte {
+            font-size: 7.5em;
+            font-weight: 800;
+
+            @include bannerTransitionShown;
+
+            @media screen and (max-width: 1000px) {
+                font-size: 5em;
+            }
+            @media screen and (max-width: 600px) {
+                font-size: 4em;
+            }
+        }
+        .divider-standard {
+            margin-bottom: 1rem;
+        }
+        .message {
+            width: 100%;
+            font-weight: 400;
+        }
+
+        .banner-button {
+            margin-top: 1.75rem;
+
+            animation-name: button-floating;
+            animation-timing-function: ease-in-out;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+
+    }
+
+    &-shape-bottom {
+        height: 8rem;
+        width: 100%;
+        bottom: 0;
+
+        transform: rotate(180deg);
+
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 8rem;
+            width: 100%;
+            margin: auto;
+
+            filter: invert(100%);
+        }
+    }
+}
+.banner.hidden {
+    .section-main {
+        .tilte {
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.button-standard {
+    padding: 1rem 3rem;
+
+    background-color: $color-yellow;
+    box-shadow: 0 0 0.5rem rgba($color-yellow, 0.25);
+    border-radius: 10rem;
+    cursor: pointer;
+    
+    transition: all 0.4s ease-in-out;
+
+    display: flex;
+    gap: 0.8em;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    &-icon {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    &:hover {
+        background-color: $color-violet; 
+        box-shadow: 0 0 0.5rem rgba($color-violet, 0.25);
+    }
+
+}

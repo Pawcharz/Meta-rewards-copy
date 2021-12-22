@@ -1,0 +1,80 @@
+@mixin infoTransitionShown {
+    transition: all 0.4s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+.info {
+
+    background-color: white;
+    position: relative;
+
+    .section-main {
+        max-width: calc( min(#{$section-banner-maxWidth-pc}, #{$section-maxWidth-pct}) );
+        
+        @include infoTransitionShown;
+        z-index: 2;
+
+        color: $color-font-black;
+
+        p {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 0 0 1em 0;
+        }
+    }
+
+    &-shapes-background {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+
+        display: flex;
+
+        img {
+            margin: auto;
+
+            position: absolute;
+            overflow: hidden;
+
+            filter: drop-shadow(0 0 0.25rem rgba(black, 0.4));
+        }
+        #shape-1 {
+            height: 16em;
+            width: 16em;
+
+            top: 20%;
+            right: 4rem;
+        }
+        #shape-2 {
+            height: 12em;
+            width: 12em;
+
+            bottom: 0;
+            left: 10%;
+        }
+        #shape-3 {
+            height: 6em;
+            width: 6em;
+
+            transform: scaleX(-1);
+            top: 0;
+            left: 35%;
+        }
+        #shape-4 {
+            height: 8em;
+            width: 8em;
+
+            transform: scaleX(-1);
+            bottom: 0;
+            right: 25%;
+        }
+    }
+}
+.info.hidden {
+    .section-main {
+
+        transform: translateY(8rem);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.divider-standard {
+    height: fit-content;
+    width: fit-content;
+
+    color: $color-yellow;
+    border-radius: 10rem;
+}
+
+@mixin background-svg-color($color) {
+    background-image: url('data:image/svg+xml;utf8,<svg ...><g stroke="#{$color}" ... /></g></svg>');
+}

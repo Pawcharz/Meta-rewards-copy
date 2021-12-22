@@ -1,0 +1,136 @@
+@mixin tocenomicsTransitionShown {
+    transition: all 1.5s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+.tokenomics {
+
+    min-height: 60vh;
+    background-image: linear-gradient($color-pink 10%, $color-violet 95%);
+    position: relative;
+
+    .section-main {
+
+        max-width: calc( min(#{$section-main-maxWidth-pc * 0.9}, 100% - 3em) );
+
+        z-index: 2;
+
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        .title {
+            letter-spacing: 0.25em;
+        }
+        .motto-1 {
+            font-weight: 700;
+            @include tocenomicsTransitionShown;
+        }
+        .motto-2 {
+            font-weight: 400;
+            @include tocenomicsTransitionShown;
+        }
+        .description {
+            font-weight: 400;
+            @include tocenomicsTransitionShown;
+        }
+
+        .info-cards-container {
+            height: fit-content;
+            width: 100%;
+
+            @include tocenomicsTransitionShown;
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+
+            .info-card {
+                height: calc(100% - 2rem);
+                width: calc(100% - 2rem);
+                padding: 1rem;
+
+
+                background-color: rgba(white, 0.23);
+                border-radius: 0.75rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+
+                &-value {
+                    font-size: 6em;
+                    font-weight: 600;
+                    color: $color-yellow;
+                    text-shadow: 0 0 0.5rem rgba(black, 0.5);
+                }
+                &-name {
+                }
+            }
+
+            
+        }
+        @media screen and (max-width: 1100px) {
+
+            max-width: calc( min(#{$section-main-maxWidth-tablet}, 100% - 3em) );
+            .info-cards-container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+
+                .info-card {
+                    height: calc(100% - 1.5rem);
+                    width: calc(100% - 1.5rem);
+                    padding: 0.75rem;
+                }
+            }
+
+        }
+    }
+    &-background {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+
+        display: flex;
+
+        svg {
+            height: 65%;
+            width: 100%;
+            margin: auto;
+
+            position: absolute;
+            overflow: hidden;
+            bottom: 0;
+            z-index: 1;
+
+            transform: rotate(180deg);
+
+            path {
+                fill: $color-pink;
+            }
+        }
+
+    }
+}
+.tokenomics.hidden {
+    .section-main {
+
+        .motto-1 {
+            transform: translateY(6rem);
+            opacity: 0;
+        }
+        .motto-2 {
+            transform: translateY(2rem);
+            opacity: 0;
+        }
+        .description {
+            transform: translateY(6rem);
+            opacity: 0;
+        }
+        .info-cards-container {
+            transform: translateY(16rem);
+            opacity: 0;
+        }
+    }
+}
