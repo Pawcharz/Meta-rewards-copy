@@ -35,7 +35,7 @@ To install this project, follow these steps:
 
 3. Start the development server:
 
-npm run start
+node server.js
 
 ## Disclaimer
 
