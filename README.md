@@ -18,8 +18,6 @@ To get started with this project, you'll need to install the necessary dependenc
 To run this project, you'll need to have the following installed:
 
 - Node.js
-- Truffle
-- Ganache
 
 ### Installation
 
