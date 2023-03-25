@@ -1,13 +1,8 @@
-# Meta-rewards-site
-Mata rewards looking Site
-Meta Rewards Site
-Welcome to the Meta Rewards Site! This project is designed as a copy of already existing website metarewards.com
-
 # Meta Rewards Site
 
 ## Welcome
 
-Welcome to the Meta Rewards Site! This project is designed to provide a platform for managing and distributing rewards in a decentralized manner. The site is built on top of the Ethereum blockchain, using smart contracts to manage rewards and distribute tokens.
+Welcome to the Meta Rewards Site! This project is designed as a copy of already existing website metarewards.com
 
 ## Table of Contents
 
